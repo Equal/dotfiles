@@ -1,2 +1,11 @@
--ai
+-i
 --type-add=html=.hb
+--ignore-dir=localization
+--ignore-dir=vendor
+--ignore-dir=build
+--ignore-dir=dist
+--ignore-dir=tmp
+--ignore-file=is:.eslintcache
+--ignore-dir=build_js
+--ignore-dir=bower_components
+--ignore-dir=test-results
