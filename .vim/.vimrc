@@ -10,11 +10,13 @@ call vundle#begin('~/dotfiles/.vim/bundle/')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Plugins
 Plugin 'tpope/vim-fugitive' " lets you integrate with git within files
-Plugin 'Localtog/vim-powerline' " provides the line at the bottom with details about the mode and oher info
-Plugin 'sjl/gundo' " provides a graphical UI for the undo tree https://sjl.bitbucket.io/gundo.vim/
-" ,u will toggle the Gundo UI
-nnoremap <leader>u :GundoToggle<CR>
+Plugin 'vim-airline/vim-airline' " provides a status/tabline
+Plugin 'vim-airline/vim-airline-themes' " themes for airline plugin
+Plugin 'sjl/gundo.vim' " provides a graphical UI for the undo tree https://sjl.bitbucket.io/gundo.vim/
+Plugin 'scrooloose/nerdcommenter' " provides shortcut to commenting out lines
+Plugin 'ctrlpvim/ctrlp.vim' " provides fuzzy file finding
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -27,6 +29,31 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+
+" Plugin Setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline
+let g:airline_theme='deus' " Set the theme for airline. Alternatives: https://github.com/vim-airline/vim-airline/wiki/Screenshots
+
+" Gundo
+" ,u will toggle the Gundo UI
+nnoremap <leader>u :GundoToggle<CR>
+
+" Nerdcommenter
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters
+
+" CtrlP
+let g:ctrlp_map = '<c-p>' " command to invoke CtrlP -> Ctrl + P
+let g:ctrlp_cmd = 'CtrlP' " command to invoke CtrlP
+let g:ctrlp_working_path_mode = 'ra' " use nearest ancestor with a source control directory as working directory
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux files to ignore
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/]\.(git|hg|svn|dist)$|build|tmp|node_modules|bower_components',
+    \ 'file': '\v\.(exe|so|dll|txt|vert|frag|swf|png|jpg|gif|otf|wotf|eot|svg|ttf|pem|patch|pickle|psd|xpi|xrf|xsf|xsl|zip|tga|swp|swo|hi|o|p_o|p_hi)$'
+    \ }
+
+
+
 
 " VIM UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
