@@ -126,7 +126,7 @@ set wildignore=*.o,*~,*.pyc,*.swp,*.bak,*.swo,*.ho,*.hi,*.beam "ignore compiled 
 nnoremap <C-h> :bprevious<cr>
 nnoremap <C-l> :bnext<cr>
 " delete a buffer with ,q
-nnoremap <leader>q :bp\|bd #<cr>
+nnoremap <leader>q :BD<cr>
 
 " add `console.log(file:line);` at line with ,jc
 nnoremap <leader>jc Oconsole.log('<C-R>=expand("%:t")<cr>:<C-R>=line('.')<cr>');<Esc>
