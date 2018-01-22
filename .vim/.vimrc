@@ -11,49 +11,36 @@ call vundle#begin('~/dotfiles/.vim/bundle/')
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
+Plugin 'ctrlpvim/ctrlp.vim' " provides fuzzy file finding
+Plugin 'scrooloose/nerdcommenter' " provides shortcut to commenting out lines
+Plugin 'sjl/gundo.vim' " provides a graphical UI for the undo tree https://sjl.bitbucket.io/gundo.vim/
 Plugin 'tpope/vim-fugitive' " lets you integrate with git within files
 Plugin 'vim-airline/vim-airline' " provides a status/tabline
 Plugin 'vim-airline/vim-airline-themes' " themes for airline plugin
-Plugin 'sjl/gundo.vim' " provides a graphical UI for the undo tree https://sjl.bitbucket.io/gundo.vim/
-Plugin 'scrooloose/nerdcommenter' " provides shortcut to commenting out lines
-Plugin 'ctrlpvim/ctrlp.vim' " provides fuzzy file finding
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-
 " Plugin Setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Airline
-let g:airline_theme='deus' " Set the theme for airline. Alternatives: https://github.com/vim-airline/vim-airline/wiki/Screenshots
-
 " Gundo
 " ,u will toggle the Gundo UI
 nnoremap <leader>u :GundoToggle<CR>
 
-" Nerdcommenter
-let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters
-
-" CtrlP
+" ctrlp.vim
 let g:ctrlp_map = '<c-p>' " command to invoke CtrlP -> Ctrl + P
 let g:ctrlp_cmd = 'CtrlP' " command to invoke CtrlP
 let g:ctrlp_working_path_mode = 'ra' " use nearest ancestor with a source control directory as working directory
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux files to ignore
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/]\.(git|hg|svn|dist)$|build|tmp|node_modules|bower_components',
     \ 'file': '\v\.(exe|so|dll|txt|vert|frag|swf|png|jpg|gif|otf|wotf|eot|svg|ttf|pem|patch|pickle|psd|xpi|xrf|xsf|xsl|zip|tga|swp|swo|hi|o|p_o|p_hi)$'
     \ }
 
+" nerdcommenter
+let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters
 
-
+" vim-airline
+let g:airline_theme='deus' " Set the theme for airline. Alternatives: https://github.com/vim-airline/vim-airline/wiki/Screenshots
 
 " VIM UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -94,3 +81,14 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 
+" Miscellaneous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nobackup " don't create .swo files
+set noswapfile " don't create .swp
+set wildignore=*.o,*~,*.pyc,*.swp,*.bak,*.swo,*.ho,*.hi,*.beam "ignore compiled files
+
+nnoremap <C-h> :bprevious<cr>
+nnoremap <C-l> :bnext<cr>
+nnoremap <leader>q :bp\|bd #<cr>
+
+nnoremap <leader>jc Oconsole.log('<C-R>=expand("%:t")<cr>:<C-R>=line('.')<cr>');<Esc>
