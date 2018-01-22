@@ -25,6 +25,8 @@ Plugin 'airblade/vim-gitgutter' " plugin to show dots signifying git diff change
 Plugin 'qpkorr/vim-bufkill' " plugin to kill buffers without closing the window
 Plugin 'embear/vim-localvimrc' " plugin to load local vimrc files per repo
 Plugin 'leafgarland/typescript-vim' "plugin to load syntax for typescript
+Plugin 'tpope/vim-surround' " plugin to make changes to surrounding characters
+Plugin 'easymotion/vim-easymotion' " plugin to provide easy motion in vim
 
 call vundle#end()            " required
 filetype plugin indent on    " required
