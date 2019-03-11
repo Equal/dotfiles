@@ -28,6 +28,7 @@ Plugin 'leafgarland/typescript-vim' "plugin to load syntax for typescript
 Plugin 'tpope/vim-surround' " plugin to make changes to surrounding characters
 Plugin 'easymotion/vim-easymotion' " plugin to provide easy motion in vim
 Plugin 'altercation/vim-colors-solarized' "plugin to provide solarized colorscheme
+Plugin 'morhetz/gruvbox' "plugin to provide Gruvbox colorscheme
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -75,7 +76,9 @@ let g:localvimrc_persistent = 2 " Store decisions made about using local vimrc f
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable " enable syntax processing
 set background=dark " dark background theme
-colorscheme solarized " Solarized!
+" let g:solarized_termcolors=256 " use degraded colorscheme - TRY IF COLORS ARE NOT WORKING AS EXPECTED
+" colorscheme solarized " Solarized!
+colorscheme gruvbox " Gruvbox!
 
 set tabstop=2 " number of visual spaces per TAB
 set softtabstop=2 " number of spaces in tab when editing
