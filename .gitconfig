@@ -1,0 +1,5 @@
+[alias]
+  p = !git push
+  c = !git commit
+  co = !git checkout
+  st = !git status
